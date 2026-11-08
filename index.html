@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Clareira</title>
+<meta name="description" content="City builder isométrico: comece na mata e faça uma cidade crescer.">
+<meta name="theme-color" content="#141915">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cpath d=%27M16 4 30 12 16 20 2 12z%27 fill=%27%2386c463%27/%3E%3Cpath d=%27M2 12v8l14 8v-8z%27 fill=%27%234c3b2b%27/%3E%3Cpath d=%27M30 12v8l-14 8v-8z%27 fill=%27%233a2d21%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500&family=Saira+Condensed:wght@500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="map" aria-label="Mapa da cidade"></canvas>
+<div class="hud">
+  <header class="top">
+    <div class="panel city">
+      <div class="name">Clareira</div>
+      <div class="when">
+        <span class="date" id="date">Jan · Ano 1</span>
+        <span class="meta"><span id="clock">08:00</span> · <span id="weather">Verão · Céu limpo</span></span>
+      </div>
+      <div class="speed" role="group" aria-label="Velocidade do tempo" id="speed">
+        <button data-speed="0" title="Pausar (espaço)">▮▮</button>
+        <button data-speed="1" title="Normal">▶</button>
+        <button data-speed="2" title="Rápido">▶▶</button>
+        <button data-speed="3" title="Muito rápido">▶▶▶</button>
+      </div>
+    </div>
+    <div class="panel stats">
+      <div class="stat"><span class="lbl">Caixa</span><span class="val" id="money">R$ 0</span><span class="sub" id="delta">—</span></div>
+      <div class="stat"><span class="lbl">Moradores</span><span class="val" id="pop">0</span></div>
+      <div class="stat"><span class="lbl">Empregos</span><span class="val" id="jobs">0</span></div>
+      <div class="rci" title="Demanda: residencial, comercial, industrial">
+        <div class="bar" data-z="r"><i></i><b>R</b></div>
+        <div class="bar" data-z="c"><i></i><b>C</b></div>
+        <div class="bar" data-z="i"><i></i><b>I</b></div>
+        <div class="rci-l"><span>+</span><span>−</span></div>
+      </div>
+    </div>
+  </header>
+  <div class="mid">
+    <div class="panel toast" id="toast" hidden></div>
+    <aside class="panel hint" id="hint" hidden>
+      <h2>Do mato à cidade</h2>
+      <ol>
+        <li>Estique <b>ruas</b> a partir da rodovia que corta a mata.</li>
+        <li>Marque lotes <b>residenciais</b> a até 2 quadras da rua.</li>
+        <li>Os moradores pedem <b>empregos</b>: crie comércio e indústria.</li>
+        <li>Praças e mata por perto valorizam os bairros.</li>
+      </ol>
+      <div class="keys">Arraste para aplicar a ferramenta. Botão direito ou dois dedos movem o mapa; roda ou pinça dão zoom. Teclas 1–8 trocam de ferramenta, espaço pausa.</div>
+      <button id="hintOk">Começar</button>
+    </aside>
+  </div>
+  <footer class="bottom">
+    <div class="panel info" id="info"></div>
+    <nav class="panel tools" id="tools" aria-label="Ferramentas"></nav>
+  </footer>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
